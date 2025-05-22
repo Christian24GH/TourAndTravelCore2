@@ -1,0 +1,8 @@
+#document_section .list-group-item:hover{
+    background-color: white;
+    
+}
+#document_section a{
+    outline:none;
+    text-decoration: none;
+}

@@ -1,0 +1,39 @@
+
+/*@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+* @source '../../storage/framework/views/*.php';
+* @source '../**//*.blade.php';
+* @source '../**//*.js';
+*/
+
+@import url('../../node_modules/bootstrap/dist/css/bootstrap.min.css');
+/*@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}*/
+body {
+    background-color: #f8f9fa;
+}
+.sidebar {
+    min-height: 100vh;
+    background-color: #fff;
+    border-right: 1px solid #dee2e6;
+}
+.sidebar .nav-link.active {
+    background-color: #ffeacc;
+    font-weight: 600;
+}
+.card-box, .reservation-card {
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+.status-badge {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 1rem;
+}
+.calendar-cell {
+    height: 100px;
+}

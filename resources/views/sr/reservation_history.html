@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facility Reservations Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .sidebar {
+      min-height: 100vh;
+      background-color: #fff;
+      border-right: 1px solid #dee2e6;
+    }
+    .sidebar .nav-link.active {
+      background-color: #ffeacc;
+      font-weight: 600;
+    }
+    .sidebar .nav-link.active {
+      background-color: #ffeacc;
+      font-weight: 600;
+    }
+    .card-box, .reservation-card {
+      background-color: #fff;
+      border: 1px solid #dee2e6;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+    .status-badge {
+      font-size: 0.8rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 1rem;
+    }
+    .calendar-cell {
+      height: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <div class="col-md-2 sidebar p-3">
+        <div class="text-center mb-4 row">
+          <div class="col-sm p-0">
+            <img src="/asset/logo.jpg" class="img-fluid" alt="Logo">
+          </div>
+          <div class="col-sm p-0">       
+            <h6>Travel and Tours</h6>
+            <small>Admin Panel</small>
+        </div>
+          <div class="mt-3">
+            <strong>Admin name</strong><br>
+            <small class="text-muted">Position title</small>
+          </div>
+        </div>
+        <nav class="nav flex-column">
+          <a class="nav-link" href="index.html">Dashboard</a>
+          <a class="nav-link" href="facility.html">Facilities</a>
+          <a class="nav-link" href="reservation_request.html">Reservation Requests</a>
+          <a class="nav-link active" href="#">Reservation History</a>
+        </nav>
+      </div>
+
+      <!-- Main Content -->
+      <div class="col-md-10 p-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h3>Reservation History</h3>
+        </div>
+        <!-- Reservation History -->
+        <div class="card-box mt-4">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5>Reservation History</h5>
+            <div>
+              <button class="btn btn-outline-secondary btn-sm me-2">Filters</button>
+              <button class="btn btn-primary btn-sm">Export CSV</button>
+            </div>
+          </div>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Facility & Requester</th>
+                <th>Date & Time</th>
+                <th>Status</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <strong>Conference Room A</strong><br>
+                  Ben & Ben<br>
+                  <small class="text-muted">Marketing</small>
+                </td>
+                <td>
+                  Jun 10, 2023, 9:00 AM<br>
+                  to Jun 10, 2023, 11:00 AM
+                </td>
+                <td><span class="badge bg-success">completed</span></td>
+                <td>Quarterly planning meeting</td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Auditorium</strong><br>
+                  Monterde<br>
+                  <small class="text-muted">HR</small>
+                </td>
+                <td>
+                  Jun 15, 2023, 1:00 PM<br>
+                  to Jun 15, 2023, 4:00 PM
+                </td>
+                <td><span class="badge bg-danger">cancelled</span></td>
+                <td>Company town hall - Cancelled due to holiday</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="d-flex justify-content-end">
+            <small class="text-muted">Showing 1 to 2 of 20 results</small>
+            <button class="btn btn-outline-secondary btn-sm ms-3">Previous</button>
+            <button class="btn btn-outline-secondary btn-sm ms-2">Next</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
