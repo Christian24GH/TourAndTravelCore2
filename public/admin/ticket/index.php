@@ -39,7 +39,9 @@
                             t.id, 
                             t.ticket, 
                             c.first_name, 
-                            c.last_name
+                            c.last_name,
+                            t.date_issued,
+                            t.status
                         FROM tickets t
                         LEFT JOIN customers c ON t.customerID = c.id
                         ORDER BY t.id DESC
@@ -55,6 +57,8 @@
                             <th scope="col">Ticket</th>
                             <th scope="col">First Name</th>
                             <th scope="col">Last Name</th>
+                            <th scope="col">Date Issued</th>
+                            <th scope="col">Status</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -65,6 +69,8 @@
                                     <td><?php echo htmlspecialchars($row['ticket']); ?></td>
                                     <td><?php echo htmlspecialchars($row['first_name'] ?? 'N/A'); ?></td>
                                     <td><?php echo htmlspecialchars($row['last_name'] ?? 'N/A'); ?></td>
+                                    <td><?php echo htmlspecialchars($row['date_issued'] ?? 'N/A'); ?></td>
+                                    <td><?php echo htmlspecialchars($row['status'] ?? 'N/A'); ?></td>
                                 </tr>
                             <?php endwhile; ?>
                         <?php else: ?>

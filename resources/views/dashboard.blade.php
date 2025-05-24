@@ -87,8 +87,8 @@
                     @foreach($recentSchedules as $schedule)
                         <tr>
                             <td>{{ $schedule->tour_title ? $schedule->tour_title : 'N/A'}}</td>
-                            <td>{{ $schedule->start_date }}</td>
-                            <td>{{ \Carbon\Carbon::parse($schedule->start_time)->format('h:i A') }}</td>
+                            <td>{{ $schedule->tour_date }}</td>
+                            <td>{{ \Carbon\Carbon::parse($schedule->tour_time)->format('h:i A') }}</td>
                             <td>
                                 <span class="badge 
                                     {{ $schedule->status == 'available' ? 'bg-success' : 

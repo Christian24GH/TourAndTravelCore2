@@ -33,7 +33,7 @@
         
         if ($idResult && $row = $idResult->fetch_assoc()) {
             $ticket = 'TourAndTravel' . date('YmdHis') . $row['customerID'];
-            $conn->query("INSERT INTO tickets(ticket, customerID) VALUES ('$ticket', {$row['customerID']})");
+            $conn->query("INSERT INTO tickets(ticket, customerID, date_issued, status) VALUES ('$ticket', {$row['customerID']}, NOW(), 'Active')");
         }
         
         echo json_encode(["status" => "ok"]);

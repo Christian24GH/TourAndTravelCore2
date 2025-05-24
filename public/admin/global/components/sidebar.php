@@ -18,10 +18,10 @@
         <a class="nav-link" href="<?php echo "$server_url/admin/ticket/index.php"?>">Issued Tickets</a>
 
         <p class="mt-4">Customer Relation</p>
-        <a class="nav-link " href="<?php echo $server_url.'crm/customers' ?>">Customers</a>
-        <a class="nav-link " href="<?php echo $server_url.'crm/notes'?>">Notes</a>
-        <a class="nav-link" href="<?php echo $server_url.'crm/logs'?>">Logs</a>
-        <a class="nav-link" href="<?php echo $server_url.'crm/issues'?>">Issues and Complaints</a>
+        <a class="nav-link " href="<?php echo $server_url.'/crm/customers' ?>">Customers</a>
+        <a class="nav-link " href="<?php echo $server_url.'/crm/notes'?>">Notes</a>
+        <a class="nav-link" href="<?php echo $server_url.'/crm/logs'?>">Logs</a>
+        <a class="nav-link" href="<?php echo $server_url.'/crm/issues'?>">Issues and Complaints</a>
 
         <p class="mt-4">Schedule and Rates</p>
         <a class="nav-link" href="<?php echo $server_url.'/sr/schedule/index'?>">Schedule</a>

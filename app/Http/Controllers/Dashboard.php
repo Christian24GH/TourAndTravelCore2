@@ -8,18 +8,18 @@ use Illuminate\Support\Facades\DB;
 class Dashboard extends Controller
 {
     public function index(){
-        $scheduleCount = DB::table('schedules')->count();
+        $scheduleCount = DB::table('tour_schedules')->count();
 
-        $upcomingSchedules = DB::table('schedules')
-            ->where('start_date', '>=', now())
+        $upcomingSchedules = DB::table('tour_schedules')
+            ->where('tour_date', '>=', now())
             ->count();
 
         $ratesCount = DB::table('rates')->count();
 
-        $recentSchedules = DB::table('schedules')
-            ->leftJoin('tour_packages', 'schedules.tour_package_id', '=', 'tour_packages.id')
-            ->select('schedules.*', 'tour_packages.title as tour_title')
-            ->orderByDesc('schedules.start_date')
+        $recentSchedules = DB::table('tour_schedules')
+            ->leftJoin('tours', 'tour_schedules.tour_id', '=', 'tours.id')
+            ->select('tour_schedules.*', 'tours.title as tour_title')
+            ->orderByDesc('tour_schedules.tour_date')
             ->limit(5)
             ->get();
 

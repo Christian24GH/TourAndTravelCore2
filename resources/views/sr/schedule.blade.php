@@ -4,7 +4,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">Add User</h1>
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Schedule</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
@@ -14,8 +14,8 @@
 
                 <div class="row mb-3">
                     <div class="col">
-                        <label for="tour_package_id" class="form-label">Tour Package</label>
-                        <select name="tour_package_id" id="tour_package_id" class="form-select" required>
+                        <label for="tour_id" class="form-label">Tours</label>
+                        <select name="tour_id" id="tour_id" class="form-select" required>
                             <option>Select a tour package</option>
                             @foreach($tourPackages as $package)
                                 <option value="{{ $package->id }}">{{ $package->title }}</option>
@@ -36,34 +36,34 @@
 
                 <div class="row mb-3">
                     <div class="col">
-                        <label for="start_date" class="form-label">Start Date</label>
+                        <label for="start_date" class="form-label">Tour Date</label>
                         <input type="date" class="form-control" name="start_date" id="start_date" required>
                     </div>
 
                     <div class="col">
-                        <label for="start_time" class="form-label">Start Time</label>
+                        <label for="start_time" class="form-label">Tour Time</label>
                         <input type="time" class="form-control" name="start_time" id="start_time" required>
                     </div>
                 </div>
 
                 <div class="row mb-3">
                     <div class="col">
-                        <label for="duration" class="form-label">Duration</label>
-                        <input type="text" class="form-control" name="duration" id="duration" placeholder="e.g., 5 hours or 3 days" required>
+                        <label for="tour_guide" class="form-label">Tour Guide</label>
+                        <input type="text" class="form-control" name="tour_guide" id="guide" required>
                     </div>
 
                     <div class="col">
-                        <label for="location" class="form-label">Location</label>
-                        <input type="text" class="form-control" name="location" id="location" required>
+                        <label for="vehicle_assigned" class="form-label">Vehicle Assigned</label>
+                        <input type="text" class="form-control" name="vehicle_assigned" id="vehicle_assigned" required>
+                    </div>
+
+                    <div class="col">
+                        <label for="max_participant" class="form-label">Max Participant</label>
+                        <input type="number" class="form-control" name="max_participant" id="max_participant" required>
                     </div>
                 </div>
 
                 <div class="row mb-3">
-                    <div class="col">
-                        <label for="final_price" class="form-label">Base Price (PHP)</label>
-                        <input type="number" step="0.01" class="form-control" name="final_price" id="final_price" required>
-                    </div>
-
                     <div class="col">
                         <label for="status" class="form-label">Status</label>
                         <select class="form-select" name="status" id="status">
@@ -86,6 +86,7 @@
 </div>
 @endsection
 @section("content")
+
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h3>Schedules</h3>
         <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#addSchedule">Add Schedule</button>
@@ -99,6 +100,15 @@
             </div>
         @endif
         
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul class="mb-0">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <table class="table table-bordered">
             <thead>
             <tr>
@@ -106,8 +116,8 @@
                 <th>Rate</th>
                 <th>Date</th>
                 <th>Time</th>
-                <th>Duration</th>
-                <th>Price</th>
+                <th>Guide</th>
+                <th>Vehicle</th>
                 <th>Status</th>
             </tr>
             </thead>
@@ -119,7 +129,7 @@
                     <tr>
                         <td class="align-middle">
                             <!-- Optional: If you want to let users change tour package -->
-                            {{$schedule->tour_title}}
+                            {{$schedule->title}}
                         </td>
                         <td class="align-middle">
                             <select name="rate_id" class="form-select">
@@ -129,16 +139,19 @@
                             </select>
                         </td>
                         <td class="align-middle">
-                            <input type="date" name="start_date" class="form-control" value="{{ $schedule->start_date }}" required>
+                            <input type="date" name="tour_date" class="form-control" value="{{ $schedule->tour_date }}" required>
                         </td>
                         <td class="align-middle">
-                            <input type="time" name="start_time" class="form-control" value="{{ $schedule->start_time }}" required>
+                            <input type="time" name="tour_time" class="form-control" value="{{ $schedule->tour_time }}" required>
                         </td>
                         <td class="align-middle">
-                            <input type="text" name="duration" class="form-control" value="{{ $schedule->duration }}" required>
+                            <input type="text" name="tour_guide" class="form-control" value="{{ $schedule->tour_guide }}" required>
                         </td>
                         <td class="align-middle">
-                            <input type="number" step="0.01" name="final_price" class="form-control" value="{{ $schedule->final_price }}" required>
+                            <input type="text" name="vehicle_assigned" class="form-control" value="{{ $schedule->vehicle_assigned }}" required>
+                        </td>
+                        <td class="align-middle">
+                            <input type="number" name="max_participants" class="form-control" value="{{ $schedule->max_participants }}" required>
                         </td>
                         <td class="align-middle">
                             <select name="status" class="form-select" required>
